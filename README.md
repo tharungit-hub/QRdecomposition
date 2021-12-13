@@ -39,9 +39,7 @@ def make_householder(a):
 	H = np.eye(a.shape[0])
 	H -= (2 / np.dot(v, v)) * np.dot(v[:, None], v[None, :])
 	return H
-
 a = np.array([[2, -2, 18], [2, 1, 0], [1, 2, 0]])
-
 q, r = qr(a)
 print('q:\n', q.round(6))
 print('r:\n', r.round(6))
@@ -51,8 +49,7 @@ ii)	# using np.linalg.qr
 import numpy as np
 m1=np.array([[2, -2, 18], [2, 1, 0], [1, 2, 0]])
 print(m1)
- 
-q,r =np.linalg.qr(m1)
+ q,r =np.linalg.qr(m1)
 print('\n Q:\n',q)
 print('\n R:\n',r)
 ```
