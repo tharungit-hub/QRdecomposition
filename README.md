@@ -18,21 +18,43 @@ To implement QR decomposition algorithm using the Householder reflection method.
 ## Program:
 i)	# Householder reflection method
 ```
+''' 
+Program to QR decomposition using the Householder reflection method
+Developed by: M VIGNESH
+RegisterNumber: 21004061
+'''
+import numpy as np
+def qr(A):
+	m, n = A.shape
+	Q = np.eye(m)
+	for i in range(n - (m == n)):
+	    H = np.eye(m)
+	    H[i:, i:] = make_householder(A[i:, i])
+	    Q = np.dot(Q, H)
+	    A = np.dot(H, A)
+	return Q, A
+def make_householder(a):
+	v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
+	v[0] = 1
+	H = np.eye(a.shape[0])
+	H -= (2 / np.dot(v, v)) * np.dot(v[:, None], v[None, :])
+	return H
 
+a = np.array([[2, -2, 18], [2, 1, 0], [1, 2, 0]])
 
-
-
-
-
-
+q, r = qr(a)
+print('q:\n', q.round(6))
+print('r:\n', r.round(6))
 ```
 ii)	# using np.linalg.qr
 ```
-
-
-
-
-
+import numpy as np
+m1=np.array([[2, -2, 18], [2, 1, 0], [1, 2, 0]])
+print(m1)
+ 
+q,r =np.linalg.qr(m1)
+print('\n Q:\n',q)
+print('\n R:\n',r)
 ```
 ## Sample Input and Output
 ![inp](./input.jpg)
