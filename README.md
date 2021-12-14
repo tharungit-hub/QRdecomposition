@@ -53,7 +53,7 @@ q,r =np.linalg.qr(m1)
 print('\n Q:\n',q)
 print('\n R:\n',r)
 ```
-## Sample Input and Output
+## Output
 ![inp](./input.jpg)
 
 ## Result
